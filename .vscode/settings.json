@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "chrono": "cpp",
+        "complex": "cpp",
+        "iostream": "cpp",
+        "limits": "cpp",
+        "valarray": "cpp",
+        "bitset": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp"
+    }
+}

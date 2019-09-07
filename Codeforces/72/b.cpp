@@ -6,17 +6,14 @@ using namespace std;
 
 int main()
 {
-    ll n,h;
-    cin>>n>>h;
-    vector<ll> v(n);
-    RD(v,n);	
-
-    ll ans = 0;
-    for( ll i=0;i<n;i++ ){
-        if( v[i] > h )
-            ans++;
-        ans++;
-    }
-    cout<<ans<<"\n";
+	bolt;
+	ll t;
+	cin>>t;
+	while(t--){
+		ll n;
+		cin>>n;
+		vector<ll> v(n);
+		RD(v,n);	
+	}
 	return 0;
 }

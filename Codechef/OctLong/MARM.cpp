@@ -50,12 +50,12 @@ int main()
                 ans[mid] = v[mid];
 
             for(i=mid+1;i<=n-1;i++){
-                if( count[i] == 1 )
+                if(count[i] == 1 )
                     ans[i] = v[n-i-1];                
                 else if( count[i] == 2 )
                     ans[i] = v[i] ^ v[n-i-1];
                 else
-                    ans[i] = v[i];                
+                     ans[i] = v[i];                
             }            
         }
         else{

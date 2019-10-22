@@ -16,6 +16,19 @@ int main()
 		cin>>n;
 		vector<ll> v(n);
 		RD(v,n);	
+		vector<ll> ans(n,0);        
+        for( ll i=0;i<n;i++ ){
+            ll j= i;
+            ll count = 0;
+            while( v[j] != (i+1) ){ 
+                count++;            
+                j = v[j]-1;
+            }
+            ans[i] = count+1;
+        }
+        for( auto it:ans  )
+            cout<<it<<" ";
+        cout<<"\n";
 	}
 	return 0;
 }

@@ -15,7 +15,29 @@ int main()
 		ll n;
 		cin>>n;
 		vector<ll> v(n);
-		RD(v,n);	
+        unordered_map<ll,ll> mp;
+        for( ll i=0;i<n;i++ ){
+            cin>>v[i];
+            mp[ v[i] ] = 1;
+        }	
+        bool flag =false;
+        for( ll i=0;i<n;i++ ){
+            ll  a = v[i] -1;
+            ll  b = v[i] +1;
+            if( mp.count(a) ){
+                flag  = true;
+                break;
+            }
+            if( mp.count(b) ){
+                flag  = true;
+                break;
+            }
+        }
+        if(flag )   
+            cout<<"2\n";
+        else
+            cout<<"1\n";
+
 	}
 	return 0;
 }

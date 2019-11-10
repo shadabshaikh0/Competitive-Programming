@@ -11,6 +11,11 @@ struct point{
     ll x,y;
 };
 
+ld finddist( point a,point b ){
+    ld dist = sqrt( (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y) );    
+    return dist;
+}
+
 int main()
 {
 	bolt;
@@ -41,44 +46,56 @@ int main()
             cin>>last[i].y;
         }
 
-        ld mindistance1 = INT_MAX;
-
+        vector<ld> distfirst(n,0);
+        vector<ld> distsecond(m,INT_MAX);
+        vector<ld> distlast(k,INT_MAX);
+        
+        point start = {x,y};
         for( ll i=0;i<n;i++ ){
-
-            ld dist1 = sqrt( ( x - first[i].x) * (x - first[i].x) + (y - first[i].y) * (y - first[i].y) );            
-
-            for( ll j=0;j<m;j++ ){
-
-                ld dist2 = dist1 + sqrt( ( second[j].x - first[i].x) * (second[j].x - first[i].x) + (second[j].y - first[i].y) * (second[j].y - first[i].y) );            
-
-                for( ll l=0;l<k;l++ ){
-                    ld dist3 =  dist2 + sqrt( ( second[j].x - last[l].x) * (second[j].x - last[l].x) + (second[j].y - last[l].y) * (second[j].y - last[l].y) );            
-//                    cout<< fixed<< setprecision(10)<<  dist3 <<"\n";                    
-                    mindistance1 = min( mindistance1,dist3 );
-                }
-            }
+            distfirst[i] = finddist( start,first[i] );
         }
-//        cout<< fixed<< setprecision(10)<<  mindistance1 <<"\n";
-        ld mindistance2 = INT_MAX;
 
         for( ll i=0;i<m;i++ ){
-
-            ld dist11 = sqrt( ( x - second[i].x) * (x - second[i].x) + (y - second[i].y) * (y - second[i].y) );            
-
             for( ll j=0;j<n;j++ ){
-
-                ld dist22 = dist11 + sqrt( ( second[i].x - first[j].x) * (second[i].x - first[j].x) + (second[i].y - first[j].y) * (second[i].y - first[j].y) );            
-
-                for( ll l=0;l<k;l++ ){
-                    ld dist33 = dist22 + sqrt( ( first[j].x - last[l].x) * (first[j].x - last[l].x) + (first[j].y - last[l].y) * (first[j].y - last[l].y) );            
-                    mindistance2 = min( mindistance2,dist33 );
-                }
+                distsecond[i] = min( distsecond[i],finddist( second[i],first[j] ) + distfirst[j] );
             }
         }
-        // cout<< fixed<< setprecision(10)<<  mindistance2 <<"\n";
+
+        for( ll i=0;i<k;i++ ){
+            for( ll j=0;j<m;j++ ){
+                distlast[i] = min( distlast[i],finddist( second[j],last[i] ) + distsecond[j]  );
+            }
+        }
+
+        ld mindistance1 = *min_element( distlast.begin(),distlast.end() );
+
+
+
+        distfirst.resize(m,0);
+        distsecond.resize(n,INT_MAX);
+        fill( distlast.begin(),distlast.end(),INT_MAX);
+
+        
+        for( ll i=0;i<m;i++ ){
+            distfirst[i] = finddist( start,second[i] );
+        }
+
+        for( ll i=0;i<n;i++ ){
+            for( ll j=0;j<m;j++ ){
+                distsecond[i] = min( distsecond[i],finddist( second[j],first[i] ) + distfirst[j] );
+            }
+        }
+
+        for( ll i=0;i<k;i++ ){
+            for( ll j=0;j<n;j++ ){
+                distlast[i] = min( distlast[i],finddist( first[j],last[i] ) + distsecond[j]  );
+            }
+        }
+
+        ld mindistance2 = *min_element( distlast.begin(),distlast.end() );
 
         cout<< fixed<< setprecision(10)<< min( mindistance1,mindistance2)  <<"\n";
 
 	}
-	return 0;
+	return 0;   
 }

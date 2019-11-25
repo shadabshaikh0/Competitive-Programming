@@ -9,6 +9,7 @@ int main()
 	bolt;
 	ll t;
 	cin>>t;
+	//hi
 	while(t--){
 		ll n;
 		cin>>n;

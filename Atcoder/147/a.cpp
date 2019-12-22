@@ -7,13 +7,14 @@ using namespace std;
 int main()
 {
 	bolt;
-	ll t;
-	cin>>t;
-	while(t--){
-		ll n;
-		cin>>n;
-		vector<ll> v(n);
-		RD(v,n);	
-	}
+    ll a,b,c;
+    cin>>a>>b>>c;
+    ll sum = a+b+c;
+    if( sum  >= 22 ){
+        cout<<"bust\n";
+    }
+    else{
+        cout<<"win\n";
+    }
 	return 0;
 }

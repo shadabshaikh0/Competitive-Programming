@@ -7,13 +7,15 @@ using namespace std;
 int main()
 {
 	bolt;
-	ll t;
-	cin>>t;
-	while(t--){
-		ll n;
-		cin>>n;
-		vector<ll> v(n);
-		RD(v,n);	
-	}
+    string s;
+    cin>>s;
+    ll n = s.length();
+    ll count = 0;
+    for(ll i=0;i<n/2;i++ ){
+        if( s[i] != s[n-1-i]  ){
+            count++;
+        }
+    }
+    cout<<count<<"\n";
 	return 0;
 }

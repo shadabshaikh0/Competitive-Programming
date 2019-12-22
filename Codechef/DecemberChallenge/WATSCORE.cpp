@@ -12,8 +12,14 @@ int main()
 	while(t--){
 		ll n;
 		cin>>n;
-		vector<ll> v(n);
-		RD(v,n);	
+		vector<ll> v(11,0);
+        for( ll i=0;i<n;i++ ){
+            ll p,s;
+            cin>>p>>s;
+            if( p < 9 )
+                v[p-1] = max(v[p-1],s);        
+        }
+        cout<<accumulate(v.begin(),v.end(),0)<<"\n";
 	}
 	return 0;
 }

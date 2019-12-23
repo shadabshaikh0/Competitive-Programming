@@ -7,13 +7,15 @@ using namespace std;
 int main()
 {
 	bolt;
-	ll t;
-	cin>>t;
-	while(t--){
-		ll n;
-		cin>>n;
-		vector<ll> v(n);
-		RD(v,n);	
-	}
+	ll n;
+	cin>>n;
+    string s,t;
+    cin>>s>>t;
+    string ans = "";
+    for( ll i=0;i<n;i++ ){
+        ans += s[i];
+        ans += t[i];
+    }
+    cout<<ans<<"\n";
 	return 0;
 }

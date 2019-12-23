@@ -7,13 +7,9 @@ using namespace std;
 int main()
 {
 	bolt;
-	ll t;
-	cin>>t;
-	while(t--){
-		ll n;
-		cin>>n;
-		vector<ll> v(n);
-		RD(v,n);	
-	}
+    ll a,b;
+    cin>>a>>b;
+    ll lcm = a*b / __gcd(a,b);
+    cout<<lcm<<"\n";
 	return 0;
 }

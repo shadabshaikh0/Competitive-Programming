@@ -7,13 +7,14 @@ using namespace std;
 int main()
 {
 	bolt;
-	ll t;
-	cin>>t;
-	while(t--){
-		ll n;
-		cin>>n;
-		vector<ll> v(n);
-		RD(v,n);	
-	}
+    ll a,b;
+    cin>>a>>b;
+    if( ( a == 1 && b == 2 ) || ( a == 2 && b == 1 ) )
+        cout<<3<<"\n";
+    else if( ( a == 2 && b == 3 ) || ( a == 3 && b == 2 ) )
+        cout<<1<<"\n";
+    else if( ( a == 1 && b ==3 ) || ( a == 3 && b == 1 ) )
+        cout<<2<<"\n";
+
 	return 0;
 }
